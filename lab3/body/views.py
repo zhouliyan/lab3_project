@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response,RequestContext,HttpResponseRedir
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from body.models import Book,Author
-
+#test for the use of github
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
