@@ -1,0 +1,66 @@
+{% extends "base.html"%}
+
+{% block title %}更新图书信息{% endblock %}
+
+{% block content %}
+<body>
+<div class="container">
+	<div class="row clearfix">
+    <div class="col-lg-6">
+	<h2>{{p.Title}}</h2>
+	</div>
+	</div>
+	<p>&nbsp;</p>
+  <form action="" method="post">
+  {% csrf_token %}
+  <div class="row clearfix">
+    <div class="col-lg-6">
+      <p>
+    <strong>作者</strong>
+    <select name="AuthorID" style ="font-family:arial;font-size:16px;">
+    {% for au in authors %}
+		{% ifequal au.Name p.AuthorID.Name %}
+		<option value="{{au.id}}" selected="selected">{{au.Name}}</option>
+		{% else %}
+		<option value="{{au.id}}">{{au.Name}}</option>
+		{% endifequal%}
+    {% endfor%}
+    </select>
+    <a class="btn btn-primary btn-xs" href="/author_add/">新增作者</a>
+      </p>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <div class="row clearfix">
+    <div class="col-lg-6">
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1" >出版商 </span>
+    <input type="text" class="form-control" name="Publisher" aria-describedby="basic-addon1" value="{{p.Publisher}}">
+    </div>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <p>&nbsp;</p>
+    <div class="row clearfix">
+    <div class="col-lg-6">
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">出版日期</span>
+    <input type="text" class="form-control" name="PublishDate" value="{{p.PublishDate}}" aria-describedby="basic-addon1">
+    </div>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <p>&nbsp;</p>
+  <div class="row clearfix">
+    <div class="col-lg-6">
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"> 价格 </span>
+    <input type="text" class="form-control" name="Price" value="{{p.Price}}" aria-describedby="basic-addon1">
+    </div>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <p>&nbsp;</p>
+  <div>
+    <input class="btn btn-success" type="submit" value="保存">
+  </div>
+  </form>
+</div>
+</body>
+{% endblock %}

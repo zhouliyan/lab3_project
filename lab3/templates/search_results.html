@@ -1,0 +1,59 @@
+{% extends "base.html"%}
+
+{% block title %}查询结果{% endblock %}
+
+{% block content %}
+
+
+  <body>
+  <div class="container">
+  	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<p style ="font-size:16px;">找到<strong> {{ books|length }} </strong>本书<br/>
+			作者： {{ query }}</p>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			{% if books %}
+			<table  class="table table-hover">
+				<thead>
+					<tr>
+						<th>
+							书名
+						</th>
+						<th>
+							操作
+						</th>
+				</thead>
+				<tbody>
+					{% for book in books %}
+					<tr>
+						<td >
+							<a href="/book_detail/{{ book.ISBN }}">{{ book.Title }}</a>
+						</td>
+						<td>
+							<a href="/book_delete/{{ book.ISBN }}">删除</a><br/>
+						</td>
+						<td>
+							<a href="/book_renew/{{ book.ISBN}}">更新</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<p>没有找到你要的书？试试<a class="btn btn-primary btn-sm" href="/book_new/">添加新书</a></p>
+			{% else %}
+			<p>对不起，图书馆中没有<strong>{{ query }}</strong>的书:(</p>
+			<p>没有找到你要的书？试试<a class="btn btn-primary btn-sm" href="/book_new/">添加新书</a></p>
+			{% endif %}
+		</div>
+	</div>
+	<p>&nbsp;</p>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+		<a href="/search/">返回查询界面</a>
+  	</div>
+   	</div>
+
+{% endblock %}

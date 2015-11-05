@@ -1,0 +1,49 @@
+{% extends "base.html"%}
+
+{% block title %}查询结果{% endblock %}
+
+{% block content %}
+
+<body>
+	<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="tabbable" id="tabs-450966">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						 <a href="#panel-988641" data-toggle="tab">图书详情</a>
+					</li>
+					<li>
+						 <a href="#panel-162673" data-toggle="tab">作者详情</a>
+					</li>
+				</ul>
+				<p>&nbsp;</p>
+				<div class="tab-content">
+					<div class="tab-pane active" id="panel-988641">
+						<p>
+							<ul style="font-size:16px">
+							<li>ISBN:{{book.ISBN}}</li>
+							<li>题目:{{book.Title}}</li>
+							<li>作者:{{book.AuthorID}}</li>
+							<li>出版商:{{book.Publisher}}</li>
+							<li>出版日期:{{book.PublishDate}}</li>
+							<li>价格:¥{{book.Price}}</li>
+							</ul>
+						</p>
+					</div>
+					<div class="tab-pane" id="panel-162673">
+						<p>
+							<ul style="font-size:16px">
+							<li>姓名：{{author.Name}}</li>
+							<li>年龄:{{author.Age}}</li>
+							<li>国籍:{{author.Country}}</li>
+							</ul>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+{% endblock %}

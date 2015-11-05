@@ -1,0 +1,42 @@
+{% extends "base.html"%}
+
+{% block title %}搜索{% endblock %}
+
+{% block content %}
+
+<body>    {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li style="color:red">{{ error }}</li>
+            {% endfor %}
+		
+        </ul>
+    {% endif %}
+</body>
+  <body>
+  <div class="container">
+	<div class="row clearfix">
+		<div class="col-lg-6">
+		<h1><strong>图书馆信息检索系统</strong></h1>
+		<p>&nbsp;</p>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<form action="/search/" method="get">
+		<div class="col-md-8">
+		<input type="text" name="q" class="form-control" placeholder="Search for author..."> 
+		</div>
+		<div class="col-md-2">
+		<input class="btn btn-default" type="submit" value="搜索">
+		</div>
+		</form>
+	</div>
+	<p>&nbsp;</p>
+	<div class="row clearfix">
+	<div class="col-lg-6">
+	<p>我来帮忙<a class="btn btn-primary btn-sm" href="/book_new/">添加新书</a></p>
+	</div>
+	</div><!-- /.row -->
+	</div>
+</body>
+{% endblock %}

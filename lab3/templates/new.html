@@ -1,0 +1,79 @@
+{% extends "base.html"%}
+{% block title %}增添新书{% endblock %}
+
+{% block content %}
+  <body><p>&nbsp;</p>
+<div class="container">
+  <form action="" method="post">
+  {% csrf_token %}
+  <div class="row clearfix">
+    <div class="col-lg-6">
+      <p>
+    <strong>作者</strong>
+    <select name="AuthorID" style ="font-family:arial;font-size:16px;">
+    {% for au in author %}
+      <option value="{{au.id}}">{{au.Name}}</option>
+    {% endfor%}
+    </select>
+    <a class="btn btn-primary btn-xs" href="/author_add/">新增作者</a>
+      </p>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+    <p>&nbsp;</p>
+	<div class="row clearfix">
+		<div class="col-lg-6">
+		<div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">ISBN</span>
+    <input type="text" class="form-control" name="ISBN" placeholder="13位数，格式如978-7-5495-3582-8" aria-describedby="basic-addon1">
+    </div>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <p>&nbsp;</p>
+  <div class="row clearfix">
+    <div class="col-lg-6">
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"> 书名 </span>
+    <input type="text" class="form-control" name="Title" aria-describedby="basic-addon1">
+    </div>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <p>&nbsp;</p>
+  <div class="row clearfix">
+    <div class="col-lg-6">
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1" >出版商 </span>
+    <input type="text" class="form-control" name="Publisher" aria-describedby="basic-addon1">
+    </div>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <p>&nbsp;</p>
+    <div class="row clearfix">
+    <div class="col-lg-6">
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">出版日期</span>
+    <input type="text" class="form-control" name="PublishDate" placeholder="如2015-10-01" aria-describedby="basic-addon1">
+    </div>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <p>&nbsp;</p>
+  <div class="row clearfix">
+    <div class="col-lg-6">
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1"> 价格 </span>
+    <input type="text" class="form-control" name="Price" aria-describedby="basic-addon1">
+    </div>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+  <p>&nbsp;</p>
+  <div>
+    <input class="btn btn-success btn-sm" type="submit" value="保存">
+  </div>
+  </form>
+  <p>&nbsp;</p>
+   <div>
+    <a class="btn btn-danger btn-sm" href="/search/">不保存返回</a>
+  </div>
+</div>
+
+</body>
+{% endblock %}

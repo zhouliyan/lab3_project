@@ -1,0 +1,45 @@
+{% extends "base.html"%}
+
+{% block title %}增添作者{% endblock %}
+
+{% block content %}
+<body>
+	<div class="container">
+	<p>&nbsp;</p>
+	<form action="" method="post">
+	{% csrf_token %}
+	<div class="row clearfix">
+    <div class="col-lg-6">
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1" >作者</span>
+    <input type="text" class="form-control" name="Name" aria-describedby="basic-addon1">
+    </div>
+    </div><!-- /.col-lg-6 -->
+  	</div><!-- /.row -->
+  	<p>&nbsp;</p>
+    <div class="row clearfix">
+    <div class="col-lg-6">
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">年龄</span>
+    <input type="text" class="form-control" name="Age" aria-describedby="basic-addon1">
+    </div>
+    </div><!-- /.col-lg-6 -->
+  	</div><!-- /.row -->
+  	<p>&nbsp;</p>
+  	<div class="row clearfix">
+    <div class="col-lg-6">
+    <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">国籍</span>
+    <input type="text" class="form-control" name="Country" aria-describedby="basic-addon1">
+    </div>
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+	<p>&nbsp;</p>
+  <div>
+    <input class="btn btn-success" type="submit" value="保存">
+  </div>
+  </form>
+</div>
+    </form>
+</body>
+{% endblock %}
